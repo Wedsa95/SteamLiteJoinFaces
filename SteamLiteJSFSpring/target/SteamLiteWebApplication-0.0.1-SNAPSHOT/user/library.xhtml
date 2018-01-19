@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	
+</h:head>
+<ui:composition template="/WEB-INF/template/slwt_library_template.xhtml">
+	<ui:define name="content">
+	  	<h:form>
+			<p:selectOneListbox value="123" header="games" showHeaders="true" >
+				<p:repeat var="game" value="#{libraryHandler.games}">
+					<f:selectItem itemLabel="game" itemValue="game.gameName"/>
+				</p:repeat>
+				
+				
+			</p:selectOneListbox>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

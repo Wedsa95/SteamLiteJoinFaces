@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    	xmlns:h="http://xmlns.jcp.org/jsf/html"
+		xmlns:f="http://xmlns.jcp.org/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+<h:body>
+<nav>
+	<h:form>
+		<p:growl id="messages"/>
+		<p:menubar >
+		
+			<p:submenu label="Library"   >
+				<p:menuitem value="Sort by catigory"  ajax="false" url="/faces/user/library.xhtml" />
+				<p:menuitem value="Sort by rating" ajax="false" url="/faces/user/library.xhtml" />
+			</p:submenu>
+			
+			<p:submenu label="Store">
+				<p:menuitem value="Sort by catigory"  ajax="false"  url="/faces/store.xhtml" />
+				<p:menuitem value="Sort by rating" ajax="false"  url="/faces/store.xhtml" />
+			</p:submenu>
+			
+			<p:submenu label="Profile"  >
+				<p:menuitem value="Change details" ajax="false" url="/faces/user/profile.xhtml" />
+			</p:submenu>
+		
+		<f:facet name="options">
+            <p:inputText style="margin-right:10px" placeholder="Search"/>
+	        
+	            <ui:fragment rendered="#{!userHandler.signedIn}" >
+	            	<p:button value="Log in" outcome="/faces/login.xhtml" />
+	            </ui:fragment>
+          
+	            <ui:fragment rendered="#{userHandler.signedIn}" >
+	            	<p:commandButton value="Log out" ajax="false" action="#{signOutHandler.sendTo}" />
+	            </ui:fragment>
+            
+            
+        </f:facet>
+        
+		</p:menubar>
+	</h:form>
+</nav>
+</h:body>
+</html>
